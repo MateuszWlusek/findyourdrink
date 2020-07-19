@@ -1,1 +1,14 @@
-node_modules
+logs
+*.log
+npm-debug.log*
+package-lock.json
+node_modules/
+.sass-cache/
+.DS_Store
+.AppleDouble
+.LSOverride
+*~
+.settings/
+.vscode/
+.test/
+.solution
