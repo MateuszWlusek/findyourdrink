@@ -1,11 +1,15 @@
 {
-    "drinks": [{
-        "id": 1,
-        "base": "Wódka",
-        "name": "Cosmopolitan",
-        "img": "",
-        "ingredients": ["Wódka cytrynowa", "Cointreau", "Sok żurawinowy", "Sok z limonki"],
-        "quantity": ["40 ml - Wódka cytrynowa", "20 ml - Cointreau", "20 ml - Sok żurawinowy", "20 ml - Sok z limonki"],
-        "preparation": ["Zacznij od schłodzenia szkła, w którym podasz drinka", "Do szejkera nasyp lodu i wlej wszystkie składniki", "Wstrząśnij w szejkerze wszystkie składniki", "Odcedź wszystkie składniki za pomocą sitka do schłodzonego kieliszka"]
-    }, ]
+    "drinks": {
+        "bases": ["Wódka", "Whisky", "Rum", "Malibu", "Gin", "Likier", "Tequila", "Wermut", "Brandy"],
+        "allingr": ["Wódka cytrynowa", "Cointreau", "Sok żurawinowy", "Sok z limonki", "Sok z pomarańczy", "Sok z grejpfruta"],
+        "drink": {
+            "id": 1,
+            "base": "Wódka",
+            "name": "Cosmopolitan",
+            "img": "",
+            "ingredients": ["Wódka cytrynowa", "Cointreau", "Sok żurawinowy", "Sok z limonki"],
+            "quantity": ["40 ml - Wódka cytrynowa", "20 ml - Cointreau", "20 ml - Sok żurawinowy", "20 ml - Sok z limonki"],
+            "preparation": ["Zacznij od schłodzenia szkła, w którym podasz drinka", "Do szejkera nasyp lodu i wlej wszystkie składniki", "Wstrząśnij w szejkerze wszystkie składniki", "Odcedź wszystkie składniki za pomocą sitka do schłodzonego kieliszka"]
+        }
+    }
 }
