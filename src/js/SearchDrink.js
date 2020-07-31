@@ -19,36 +19,54 @@ const SearchDrink = () => {
   console.log(drinks[1]);
   return (
     <>
-      <nav>
+      <nav className="nav-mainpage">
         <ul>
           <li>
             <NavLink to="/">Strona główna</NavLink>
           </li>
+          <li>
+            <NavLink to="/add">Dodawanie drinka</NavLink>
+          </li>
+          <li>
+            <NavLink to="/roulette">Wylosuj drinka</NavLink>
+          </li>
         </ul>
       </nav>
-      <h1>Wyszukaj drinka</h1>
-      <form>
-        <select>
-          {base.map((el) => (
-            <option key={el} value={el}>
-              {el}
-            </option>
-          ))}
-        </select>
-        <select>
-          {ingr.map((el) => (
-            <option key={el} value={el}>
-              {el}
-            </option>
-          ))}
-        </select>
-        <ul>
-          Lista drinków
-          {drinks?.map((e) => (
-            <li key={e.id}>{e.name}</li>
-          ))}
-        </ul>
-      </form>
+      <div className="search-content">
+        <h2>Wyszukaj drinka</h2>
+        <div className="search-box">
+          <section className="ingredients">
+            <div className="ingredients_base">
+              <p>Alkohol bazowy</p>
+              <select>
+                {base.map((el) => (
+                  <option key={el} value={el}>
+                    {el}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="ingredients_others">
+              <p>Pozostałe składniki</p>
+              <select>
+                {ingr.map((el) => (
+                  <option key={el} value={el}>
+                    {el}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </section>
+        </div>
+        <div className="drinks-found">
+          <p>Lista drinków</p>
+          <ul className="list-found">
+            {drinks?.map((e) => (
+              <li key={e.id}>{e.name}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </>
   );
 };

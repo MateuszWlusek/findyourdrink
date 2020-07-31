@@ -1,2 +1,44 @@
 @import "./generic/reset";
+@import "./generic/breakpoints";
+@import "./settings/color";
 @import "./elements/base";
+@import "./elements/home";
+@import "./elements/_adddrink";
+@import "./elements/searchdrink";
+@import "./elements/drinkroulette";
+
+.head-title {
+  width: 100%;
+  height: 5vh;
+  background-color: $head-bg-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 0.1rem solid $head-border-color;
+  h1 {
+    text-transform: uppercase;
+    color: $head-text-color;
+    font-size: 3rem;
+    font-family: sans-serif;
+  }
+}
+
+.footer-copy {
+  width: 100%;
+  height: 5vh;
+  background-color: $footer-bg-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 0.1rem solid $footer-border-color;
+  p {
+    color: $footer-text-color;
+    font-size: 1.5rem;
+    font-family: sans-serif;
+  }
+  @include tablet {
+    p {
+      font-size: 2rem;
+    }
+  }
+}

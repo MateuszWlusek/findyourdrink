@@ -13,26 +13,33 @@ import DrinkRoulette from "./DrinkRoullette";
 
 const Main = () => {
   return (
-    <nav>
-      <ul>
-        <li>
-          <NavLink to="/add">Dodawanie drinka</NavLink>
-        </li>
-        <li>
-          <NavLink to="/search">Wyszukiwanie drinka</NavLink>
-        </li>
-        <li>
-          <NavLink to="/roulette">Wylosuj drinka</NavLink>
-        </li>
-      </ul>
-    </nav>
+    <>
+      <div className="home-mainscreen">
+        <img src="../img/cocktail-2634115_640_cut_colored.png" />
+        <nav>
+          <ul>
+            <li>
+              <NavLink to="/add">Dodawanie drinka</NavLink>
+            </li>
+            <li>
+              <NavLink to="/search">Wyszukiwanie drinka</NavLink>
+            </li>
+            <li>
+              <NavLink to="/roulette">Wylosuj drinka</NavLink>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </>
   );
 };
 const App = () => {
   return (
     <Router>
       <>
-        <h1>Find Your Drink</h1>
+        <header className="head-title">
+          <h1>Find Your Drink</h1>
+        </header>
 
         <Switch>
           <Route exact path="/" component={Main} />
@@ -40,6 +47,9 @@ const App = () => {
           <Route path="/search" component={SearchDrink} />
           <Route path="/roulette" component={DrinkRoulette} />
         </Switch>
+        <footer className="footer-copy">
+          <p>&copy; Mateusz Włusek. All rights reserved</p>{" "}
+        </footer>
       </>
     </Router>
   );
