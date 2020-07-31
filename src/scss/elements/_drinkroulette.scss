@@ -1,0 +1,16 @@
+.roll-content {
+    width: 100%;
+    height: 85vh;
+    background-color: $roll-bg-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5rem;
+
+    h2 {
+        font-size: 2rem;
+        font-family: sans-serif;
+        color: $roll-text-title-color;
+        margin-bottom: 2rem;
+    }
+}

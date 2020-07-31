@@ -37,10 +37,16 @@ const AddDrink = () => {
   };
   return (
     <>
-      <nav>
+      <nav className="nav-mainpage">
         <ul>
           <li>
             <NavLink to="/">Strona główna</NavLink>
+          </li>
+          <li>
+            <NavLink to="/roulette">Wylosuj drinka</NavLink>
+          </li>
+          <li>
+            <NavLink to="/search">Wyszukiwanie drinka</NavLink>
           </li>
         </ul>
       </nav>
