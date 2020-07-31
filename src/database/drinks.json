@@ -1,15 +1,23 @@
 {
     "drinks": {
         "bases": ["Wódka", "Whisky", "Rum", "Malibu", "Gin", "Likier", "Tequila", "Wermut", "Brandy"],
-        "allingr": ["Wódka cytrynowa", "Cointreau", "Sok żurawinowy", "Sok z limonki", "Sok z pomarańczy", "Sok z grejpfruta"],
-        "drink": {
+        "allingr": ["Wódka limonkowa", "Cointreau", "Sok żurawinowy", "Sok z limonki", "Sok z pomarańczy", "Sok z grejpfruta", "Likier brzoskwiniowy"],
+        "drink": [{
             "id": 1,
             "base": "Wódka",
             "name": "Cosmopolitan",
             "img": "",
-            "ingredients": ["Wódka cytrynowa", "Cointreau", "Sok żurawinowy", "Sok z limonki"],
-            "quantity": ["40 ml - Wódka cytrynowa", "20 ml - Cointreau", "20 ml - Sok żurawinowy", "20 ml - Sok z limonki"],
+            "ingredients": ["Wódka limonkowa", "Cointreau", "Sok żurawinowy", "Sok z limonki"],
+            "quantity": ["40 ml - Wódka limonkowa", "20 ml - Cointreau", "20 ml - Sok żurawinowy", "20 ml - Sok z limonki"],
             "preparation": ["Zacznij od schłodzenia szkła, w którym podasz drinka", "Do szejkera nasyp lodu i wlej wszystkie składniki", "Wstrząśnij w szejkerze wszystkie składniki", "Odcedź wszystkie składniki za pomocą sitka do schłodzonego kieliszka"]
-        }
+        }, {
+            "id": 2,
+            "base": "Wódka",
+            "name": "Sex On The Beach",
+            "img": "",
+            "ingredients": ["Likier brzoskwiniowy", "Sok z pomarańczy", "Sok żurawinowy"],
+            "quantity": ["40 ml - Wódka", "20 ml - Likier brzoskwiniowy", "60 ml - Sok z pomarańczy", "60 ml - Sok żurawinowy"],
+            "preparation": ["Zacznij od schłodzenia szkła, w którym podasz drinka", "Do schłodzonego szkła wlej wszystkie składniki", "Wymieszaj je ze sobą"]
+        }]
     }
 }
