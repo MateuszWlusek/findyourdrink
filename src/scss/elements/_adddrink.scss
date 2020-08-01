@@ -1,0 +1,56 @@
+.add-content {
+    width: 100%;
+    height: 85vh;
+    background-color: $add-bg-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5rem;
+
+    h2 {
+        font-size: 2rem;
+        font-family: sans-serif;
+        color: $add-text-title-color;
+        margin-bottom: 2rem;
+    }
+
+    p {
+        font-size: 1.5rem;
+        font-family: sans-serif;
+        color: $add-text-para-color;
+    }
+
+    [class^="btn"] {
+        padding: .5rem 2rem;
+        background-color: $add-btn-bg-color;
+        color: $add-btn-text-color;
+        border: .1rem dashed $add-btn-border-color;
+        margin-left: 1rem;
+    }
+
+    input {
+        width: 20rem;
+        height: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    select {
+        margin-bottom: 2rem;
+    }
+
+    .text-form {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    li {
+        color: $add-list-text-color;
+        font-size: 1.5rem;
+    }
+
+    .btn-adddrink {
+        margin-left: 0;
+    }
+}

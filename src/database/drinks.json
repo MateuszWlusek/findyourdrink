@@ -1,7 +1,7 @@
 {
     "drinks": {
         "bases": ["Wódka", "Whisky", "Rum", "Malibu", "Gin", "Likier", "Tequila", "Wermut", "Brandy"],
-        "allingr": ["Wódka limonkowa", "Cointreau", "Sok żurawinowy", "Sok z limonki", "Sok z pomarańczy", "Sok z grejpfruta", "Likier brzoskwiniowy"],
+        "allingr": ["Wódka limonkowa", "Cointreau", "Sok żurawinowy", "Sok z limonki", "Sok z pomarańczy", "Sok z grejpfruta", "Likier brzoskwiniowy", "Wódka", "Whisky", "Rum", "Malibu", "Gin", "Likier", "Tequila", "Wermut", "Brandy"],
         "drink": [{
             "id": 1,
             "base": "Wódka",
