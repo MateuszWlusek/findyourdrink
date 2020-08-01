@@ -13,4 +13,26 @@
         color: $roll-text-title-color;
         margin-bottom: 2rem;
     }
+
+    .btns {
+        width: 40rem;
+        height: 5rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+
+        [class^="btn"] {
+            padding: .5rem 2rem;
+            border: none;
+            border-bottom: .1rem double $roll-btn-border-color;
+            border-radius: 2rem;
+            background-color: $roll-btn-bg-color;
+            color: $roll-btn-text-color;
+
+            &:focus {
+                outline: .1rem solid $roll-btn-text-color;
+            }
+        }
+    }
 }

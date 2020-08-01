@@ -41,7 +41,7 @@ const DrinkRoulette = () => {
       <div className="roll-content">
         <h2>Wylosuj drinka</h2>
         <img src="../img/cocktail-2634115_640_cut_colored.png" />
-        <div {...handlers}>
+        <div className="btns" {...handlers}>
           <button className="btn-acc">Napiję się</button>
           <button className="btn-ref">Nie chcę. Losuj dalej</button>
         </div>
