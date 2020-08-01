@@ -7,6 +7,12 @@ const SearchDrink = () => {
   const [base, setBase] = useState([]);
   const [ingr, setIngr] = useState([]);
   const [drinks, setDrinks] = useState([]);
+  const [basealc, setBasealc] = useState("Wybierz alkohol bazowy");
+  const [filtdrink, setFiltdrink] = useState([]);
+  const [filtdrink2, setFiltdrink2] = useState([]);
+  const [otheringr, setOtheringr] = useState([]);
+  const [descr, setDescr] = useState("none");
+
   useEffect(() => {
     fetch(`${API}`)
       .then((res) => res.json())
@@ -14,9 +20,40 @@ const SearchDrink = () => {
         setBase(data.bases);
         setIngr(data.allingr);
         setDrinks(data.drink);
-      });
+      })
+      .catch((err) => console.log(err));
   }, []);
-  console.log(drinks[1]);
+
+  const filterBase = (e) => {
+    setBasealc(e.target.value);
+  };
+  useEffect(() => {
+    const copy = [...drinks];
+    basealc == "Wybierz alkohol bazowy"
+      ? (setFiltdrink(copy), setFiltdrink2(copy))
+      : (setFiltdrink(copy.filter((drink) => drink.base == basealc)),
+        setFiltdrink2(copy.filter((drink) => drink.base == basealc)));
+  }, [basealc]);
+  const filterOthers = (e) => {
+    setOtheringr(e.target.value);
+  };
+
+  useEffect(() => {
+    const copy2 = [...filtdrink];
+    otheringr == "Wybierz pozostałe składniki"
+      ? setFiltdrink2(copy2)
+      : setFiltdrink2(
+          copy2.filter((drink) => drink.ingredients.includes(otheringr) == true)
+        );
+  }, [otheringr]);
+
+  const changeClass = (e) => {
+    console.log(e.target);
+    e.target.children[0].className == "none"
+      ? (e.target.children[0].className = "show")
+      : (e.target.children[0].className = "none");
+  };
+
   return (
     <>
       <nav className="nav-mainpage">
@@ -38,7 +75,10 @@ const SearchDrink = () => {
           <section className="ingredients">
             <div className="ingredients_base">
               <p>Alkohol bazowy</p>
-              <select>
+              <select onChange={filterBase}>
+                <option value="Wybierz alkohol bazowy">
+                  Wybierz alkohol bazowy
+                </option>
                 {base.map((el) => (
                   <option key={el} value={el}>
                     {el}
@@ -48,7 +88,10 @@ const SearchDrink = () => {
             </div>
             <div className="ingredients_others">
               <p>Pozostałe składniki</p>
-              <select>
+              <select onChange={filterOthers}>
+                <option value="Wybierz pozostałe składniki">
+                  Wybierz pozostałe składniki
+                </option>
                 {ingr.map((el) => (
                   <option key={el} value={el}>
                     {el}
@@ -61,9 +104,32 @@ const SearchDrink = () => {
         <div className="drinks-found">
           <p>Lista drinków</p>
           <ul className="list-found">
-            {drinks?.map((e) => (
-              <li key={e.id}>{e.name}</li>
-            ))}
+            {filtdrink2?.map((e) => {
+              return (
+                <>
+                  <li
+                    className="list-found_elements"
+                    key={e.id}
+                    onClick={changeClass}>
+                    {e.name}
+                    <div className={descr}>
+                      <p>Potrzebne składniki:</p>
+                      <ul>
+                        {e.quantity.map((ing) => {
+                          return <li>{ing}</li>;
+                        })}
+                      </ul>
+                      <p>Przygotowanie</p>
+                      <ul>
+                        {e.preparation.map((prep) => {
+                          return <li>{prep}</li>;
+                        })}
+                      </ul>
+                    </div>
+                  </li>
+                </>
+              );
+            })}
           </ul>
         </div>
       </div>

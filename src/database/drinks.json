@@ -1,7 +1,7 @@
 {
     "drinks": {
         "bases": ["Wódka", "Whisky", "Rum", "Malibu", "Gin", "Likier", "Tequila", "Wermut", "Brandy"],
-        "allingr": ["Wódka limonkowa", "Cointreau", "Sok żurawinowy", "Sok z limonki", "Sok z pomarańczy", "Sok z grejpfruta", "Likier brzoskwiniowy", "Wódka", "Whisky", "Rum", "Malibu", "Gin", "Likier", "Tequila", "Wermut", "Brandy"],
+        "allingr": ["Wódka limonkowa", "Cointreau", "Sok żurawinowy", "Sok z limonki", "Sok z pomarańczy", "Sok z grejpfruta", "Likier brzoskwiniowy", "Wódka", "Whisky", "Rum", "Malibu", "Gin", "Likier", "Tequila", "Wermut", "Brandy", "Sok z ananasa", "Syrop cukrowy", "Krem kokosowy", "Coca Cola"],
         "drink": [{
             "id": 1,
             "base": "Wódka",
@@ -17,6 +17,30 @@
             "img": "",
             "ingredients": ["Likier brzoskwiniowy", "Sok z pomarańczy", "Sok żurawinowy"],
             "quantity": ["40 ml - Wódka", "20 ml - Likier brzoskwiniowy", "60 ml - Sok z pomarańczy", "60 ml - Sok żurawinowy"],
+            "preparation": ["Zacznij od schłodzenia szkła, w którym podasz drinka", "Do schłodzonego szkła wlej wszystkie składniki", "Wymieszaj je ze sobą"]
+        }, {
+            "id": 3,
+            "base": "Malibu",
+            "name": "Hawaiian",
+            "img": "",
+            "ingredients": ["Rum", "Cointreau", "Sok z pomarańczy", "Sok z ananasa", "Sok z limonki", "Syrop cukrowy", "Krem kokosowy"],
+            "quantity": ["40 ml - Malibu", "10 ml - Rum", "10 ml - Cointreau", "40 ml - Sok z pomarańczy", "40 ml - Sok z ananasa", "20 ml - Sok z limonki", "10 ml - Syrop cukrowy", "20 ml - Krem kokosowy"],
+            "preparation": ["Zacznij od schłodzenia szkła, w którym podasz drinka", "Do szejkera wlej wszystkie składniki i wstrząśnij", "Przelej zawartość szejkera do schłodzonego szkła"]
+        }, {
+            "id": 4,
+            "base": "Rum",
+            "name": "Cuba Libre",
+            "img": "",
+            "ingredients": ["Coca Cola", "Sok z limonki"],
+            "quantity": ["40 ml - Rum", "120 ml - Coca Cola", "20 ml - Sok z limonki"],
+            "preparation": ["Zacznij od schłodzenia szkła, w którym podasz drinka", "Do schłodzonego szkła wlej sok z limonki", "Dolej rum i colę", "Wymieszaj składniki ze sobą"]
+        }, {
+            "id": 5,
+            "base": "Gin",
+            "name": "Martini",
+            "img": "",
+            "ingredients": ["Wermut"],
+            "quantity": ["60 ml - Gin", "10 ml - Wermut"],
             "preparation": ["Zacznij od schłodzenia szkła, w którym podasz drinka", "Do schłodzonego szkła wlej wszystkie składniki", "Wymieszaj je ze sobą"]
         }]
     }

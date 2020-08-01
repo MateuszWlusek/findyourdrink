@@ -72,15 +72,35 @@
     .list-found {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         justify-content: space-evenly;
         width: 100%;
 
-
-
-        li {
+        .list-found_elements {
             color: $search-text-list-color;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
             font-size: 1.5rem;
+            cursor: pointer;
+
+            .none {
+                display: none;
+            }
+
+            .show {
+                display: block;
+                position: absolute;
+                background-color: $search-recipe-bg-color;
+                width: 30rem;
+                top: 5rem;
+                left: -10rem;
+
+            }
         }
+
+
     }
 
 }
