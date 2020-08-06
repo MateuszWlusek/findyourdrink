@@ -48,7 +48,6 @@ const SearchDrink = () => {
   }, [otheringr]);
 
   const changeClass = (e) => {
-    console.log(e.target);
     e.target.children[0].className == "none"
       ? (e.target.children[0].className = "show")
       : (e.target.children[0].className = "none");
@@ -80,7 +79,9 @@ const SearchDrink = () => {
                   Wybierz alkohol bazowy
                 </option>
                 {base.map((el) => (
-                  <option key={el} value={el}>
+                  <option
+                    key={Math.floor(Math.random() * (999999 - 1)) + 1}
+                    value={el}>
                     {el}
                   </option>
                 ))}
@@ -93,7 +94,9 @@ const SearchDrink = () => {
                   Wybierz pozostałe składniki
                 </option>
                 {ingr.map((el) => (
-                  <option key={el} value={el}>
+                  <option
+                    key={Math.floor(Math.random() * (999999 - 1)) + 1}
+                    value={el}>
                     {el}
                   </option>
                 ))}
@@ -109,20 +112,34 @@ const SearchDrink = () => {
                 <>
                   <li
                     className="list-found_elements"
-                    key={e.id}
+                    key={Math.floor(Math.random() * (999999 - 1)) + 1}
                     onClick={changeClass}>
                     {e.name}
                     <div className={descr}>
                       <p>Potrzebne składniki:</p>
                       <ul>
                         {e.quantity.map((ing) => {
-                          return <li>{ing}</li>;
+                          return (
+                            <li
+                              key={
+                                Math.floor(Math.random() * (999999 - 1)) + 1
+                              }>
+                              {ing}
+                            </li>
+                          );
                         })}
                       </ul>
                       <p>Przygotowanie</p>
                       <ul>
                         {e.preparation.map((prep) => {
-                          return <li>{prep}</li>;
+                          return (
+                            <li
+                              key={
+                                Math.floor(Math.random() * (999999 - 1)) + 1
+                              }>
+                              {prep}
+                            </li>
+                          );
                         })}
                       </ul>
                     </div>

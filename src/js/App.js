@@ -48,7 +48,7 @@ const App = () => {
           <Route path="/roulette" component={DrinkRoulette} />
         </Switch>
         <footer className="footer-copy">
-          <p>&copy; Mateusz Włusek. All rights reserved</p>{" "}
+          <p>&copy; Mateusz Włusek. All rights reserved</p>
         </footer>
       </>
     </Router>
