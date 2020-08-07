@@ -35,8 +35,7 @@
       "Krem z ananasa",
       "Sok z czarnej pożeczki"
     ],
-    "drink": [
-      {
+    "drink": [{
         "id": 1,
         "base": "Wódka",
         "name": "Cosmopolitan",
