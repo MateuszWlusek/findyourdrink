@@ -4,23 +4,41 @@ import { NavLink } from "react-router-dom";
 const API = "http://localhost:3005/drinks/";
 
 const AddDrink = () => {
-  const [base, setBase] = useState([]);
+  const [baseAlc, setBase] = useState([]);
   const [ingr, setIngr] = useState([]);
+  const [drinks, setDrinks] = useState([]);
   const [ingrList, setIngrList] = useState([]);
   const [drinkIngr, setDrinkIngr] = useState([]);
   const [instr, setInstr] = useState("");
   const [instrList, setInstrList] = useState([]);
-
+  const [addDrink, setAddDrink] = useState({
+    bases: [],
+    allingr: [],
+    id: "",
+    baseAlc: "",
+    name: "",
+    ingredients: [],
+    quantity: [],
+    preparation: [],
+  });
   useEffect(() => {
     fetch(`${API}`)
       .then((res) => res.json())
       .then((data) => {
         setBase(data.bases);
         setIngr(data.allingr);
+        setDrinks(data.drink);
       });
   }, []);
   const addToList = (e) => {
-    setIngrList([e.target.value]);
+    if (
+      e.target.value == "Wybierz alkohol bazowy" ||
+      e.target.value == "Wybierz pozostałe składniki"
+    ) {
+      null;
+    } else {
+      setIngrList([e.target.value]);
+    }
   };
   const addIngredient = (e) => {
     e.preventDefault();
@@ -33,8 +51,70 @@ const AddDrink = () => {
   const addStep = (e) => {
     e.preventDefault();
     setInstrList((prev) => [...prev, instr]);
-    console.log(instrList);
+    e.target.parentElement.children[1].value = "";
   };
+
+  const addIngrToBase = () => {
+    fetch(`${API}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        allingr: [...ingr, addDrink.allingr],
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setIngr((prev) => [...prev, data]);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  };
+  const addToBase = (e) => {
+    const { name, value } = e.target;
+    setAddDrink((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+  const drinkName = (e) => {
+    const { name, value } = e.target;
+    setAddDrink((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+  const handleAddDrink = () => {
+    fetch(`${API}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        drink: [
+          ...drinks,
+          {
+            id: drinks.length + 1,
+            base: baseAlc,
+            name: addDrink.name,
+            ingredients: drinkIngr,
+            quantity: drinkIngr,
+            preparation: instrList,
+          },
+        ],
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setIngr((prev) => [...prev, data]);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  };
+
   return (
     <>
       <nav className="nav-mainpage">
@@ -52,33 +132,64 @@ const AddDrink = () => {
       </nav>
       <div className="add-content">
         <h2>Dodaj drinka</h2>
-        <form>
-          <p>Podaj nazwę drinka</p>
-          <input type="text" />
-          <p>Wybierz alkohol bazowy</p>
-          <select>
-            {base.map((el) => (
-              <option key={el} value={el}>
-                {el}
-              </option>
-            ))}
-          </select>
-          <p>Wybierz dodatkowe składniki</p>
+        <form onSubmit={handleAddDrink}>
+          <label from="name">Podaj nazwę drinka</label>
+          <input
+            id="name"
+            type="text"
+            name="name"
+            value={addDrink.name}
+            onChange={drinkName}
+          />
+          <label from="baseAlc">Wybierz alkohol bazowy</label>
           <select onChange={addToList}>
-            {ingr.map((el) => (
-              <option key={el} value={el}>
+            <option value="Wybierz alkohol bazowy">
+              Wybierz alkohol bazowy
+            </option>
+            {baseAlc.map((el) => (
+              <option
+                key={Math.floor(Math.random() * (999999 - 1)) + 1}
+                id="base"
+                name="base"
+                value={el}>
                 {el}
               </option>
             ))}
           </select>
-          <p>Dodaj swój składnik, jeśli nie ma go na liście</p>
-          <input type="text" />
-          <button className="btn-addbase">Dorzuć swój składnik do bazy</button>
-          <p>Dodaj składnik do listy</p>
+          <label from="ingred">Wybierz dodatkowe składniki</label>
+          <select onChange={addToList}>
+            <option value="Wybierz pozostałe składniki">
+              Wybierz pozostałe składniki
+            </option>
+            {ingr.map((el) => (
+              <option
+                key={Math.floor(Math.random() * (999999 - 1)) + 1}
+                id="ingred"
+                name="ingred"
+                value={el}>
+                {el}
+              </option>
+            ))}
+          </select>
+          <label from="ingredient">
+            Dodaj swój składnik, jeśli nie ma go na liście
+          </label>
+          <input
+            id="allingr"
+            name="allingr"
+            type="text"
+            value={addDrink.allingr}
+            onChange={addToBase}
+          />
+          <button className="btn-addbase" onClick={addIngrToBase}>
+            Dorzuć swój składnik do bazy
+          </button>
+          <label>Dodaj składnik do listy</label>
           <ul>
             {ingrList.map((el) => (
-              <li>
-                <input type="number" name="quan" />
+              <li key={Math.floor(Math.random() * (999999 - 1)) + 1}>
+                <label from="quan">Podaj ilość</label>
+                <input id="quan" type="text" name="quan" />
                 <span>ml - </span>
                 <span>{el}</span>
                 <button className="btn-addingr" onClick={addIngredient}>
@@ -87,16 +198,27 @@ const AddDrink = () => {
               </li>
             ))}
           </ul>
-          <p>Lista składników</p>
+          <label from="ingredients">Lista składników</label>
           <ul>
             {drinkIngr.map((el) => {
-              return <li>ml - {el}</li>;
+              return (
+                <li
+                  key={Math.floor(Math.random() * (999999 - 1)) + 1}
+                  id="quantity"
+                  name="quantity"
+                  value={addDrink.quantity}>
+                  ml - {el}
+                </li>
+              );
             })}
           </ul>
           <div className="text-form">
+            <label from="preparation"></label>
             <textarea
+              id="preparation"
+              name="preparation"
               type="text"
-              placeholder="Krok po roku dodaj instrukcję"
+              placeholder="Krok po kroku dodaj instrukcję"
               cols="40"
               rows="2"
               onChange={stepList}
@@ -104,13 +226,19 @@ const AddDrink = () => {
             <button className="btn-addstep" onClick={addStep}>
               Dodaj krok
             </button>
+            <ul>
+              {instrList.map((e) => {
+                return (
+                  <li
+                    key={Math.floor(Math.random() * (999999 - 1)) + 1}
+                    value={addDrink.preparation}>
+                    {e}
+                  </li>
+                );
+              })}
+            </ul>
           </div>
 
-          <ul>
-            {instrList.map((e) => {
-              return <li>{e}</li>;
-            })}
-          </ul>
           <button className="btn-adddrink" type="submit">
             Dodaj drinka!
           </button>
