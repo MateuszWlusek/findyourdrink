@@ -72,6 +72,7 @@ const AddDrink = () => {
         alert(error);
       });
   };
+
   const addToBase = (e) => {
     const { name, value } = e.target;
     setAddDrink((prev) => ({
@@ -86,6 +87,7 @@ const AddDrink = () => {
       [name]: value,
     }));
   };
+
   const handleAddDrink = () => {
     fetch(`${API}`, {
       method: "PATCH",
@@ -94,7 +96,7 @@ const AddDrink = () => {
           ...drinks,
           {
             id: drinks.length + 1,
-            base: baseAlc,
+            baseAlc: addDrink.baseAlc,
             name: addDrink.name,
             ingredients: drinkIngr,
             quantity: drinkIngr,
@@ -149,8 +151,8 @@ const AddDrink = () => {
             {baseAlc.map((el) => (
               <option
                 key={Math.floor(Math.random() * (999999 - 1)) + 1}
-                id="base"
-                name="base"
+                id="baseAlc"
+                name="baseAlc"
                 value={el}>
                 {el}
               </option>
@@ -188,8 +190,8 @@ const AddDrink = () => {
           <ul>
             {ingrList.map((el) => (
               <li key={Math.floor(Math.random() * (999999 - 1)) + 1}>
-                <label from="quan">Podaj ilość</label>
-                <input id="quan" type="text" name="quan" />
+                <label from="quan">Podaj ilość </label>
+                <input id="quan" type="number" />
                 <span>ml - </span>
                 <span>{el}</span>
                 <button className="btn-addingr" onClick={addIngredient}>
@@ -207,7 +209,7 @@ const AddDrink = () => {
                   id="quantity"
                   name="quantity"
                   value={addDrink.quantity}>
-                  ml - {el}
+                  {quan.value}ml - {el}
                 </li>
               );
             })}
