@@ -7,7 +7,7 @@ const SearchDrink = () => {
   const [base, setBase] = useState([]);
   const [ingr, setIngr] = useState([]);
   const [drinks, setDrinks] = useState([]);
-  const [basealc, setBasealc] = useState("Wybierz alkohol bazowy");
+  const [basealc, setBasealc] = useState([]);
   const [filtdrink, setFiltdrink] = useState([]);
   const [filtdrink2, setFiltdrink2] = useState([]);
   const [otheringr, setOtheringr] = useState([]);
@@ -34,6 +34,7 @@ const SearchDrink = () => {
       : (setFiltdrink(copy.filter((drink) => drink.base == basealc)),
         setFiltdrink2(copy.filter((drink) => drink.base == basealc)));
   }, [basealc]);
+
   const filterOthers = (e) => {
     setOtheringr(e.target.value);
   };
