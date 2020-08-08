@@ -144,48 +144,6 @@
           "Do schłodzonego szkła wlej wszystkie składniki",
           "Wymieszaj je ze sobą"
         ]
-      },
-      {
-        "id": 6,
-        "base": [
-          "Wódka",
-          "Whisky",
-          "Rum",
-          "Malibu",
-          "Gin",
-          "Likier",
-          "Tequila",
-          "Wermut",
-          "Brandy"
-        ],
-        "name": "",
-        "ingredients": [
-          [
-            "Malibu"
-          ],
-          [
-            "Likier brzoskwiniowy"
-          ],
-          [
-            "Sok z limonki"
-          ]
-        ],
-        "quantity": [
-          [
-            "Malibu"
-          ],
-          [
-            "Likier brzoskwiniowy"
-          ],
-          [
-            "Sok z limonki"
-          ]
-        ],
-        "preparation": [
-          "1",
-          "2",
-          "3"
-        ]
       }
     ]
   }

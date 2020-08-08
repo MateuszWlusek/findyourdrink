@@ -1,6 +1,6 @@
 .roll-content {
     width: 100%;
-    height: 85vh;
+    min-height: 85vh;
     background-color: $roll-bg-color;
     display: flex;
     flex-direction: column;
@@ -12,6 +12,36 @@
         font-family: sans-serif;
         color: $roll-text-title-color;
         margin-bottom: 2rem;
+    }
+
+    .rolledDrink {
+        span {
+            font-size: 2rem;
+            color: $roll-preparation-text-color;
+        }
+
+        .preparation-hidden {
+            display: none;
+        }
+
+        .preparation-show {
+            display: block;
+
+            p {
+                color: $roll-preparation-text-color;
+                font-size: 1.5rem;
+            }
+
+            ul {
+                margin-bottom: 1rem;
+
+                li {
+                    color: $roll-preparation-text-color;
+                    font-size: 1.5rem;
+                }
+            }
+
+        }
     }
 
     .btns {
@@ -33,6 +63,10 @@
             &:focus {
                 outline: .1rem solid $roll-btn-text-color;
             }
+        }
+
+        & .hide {
+            display: none;
         }
     }
 }
