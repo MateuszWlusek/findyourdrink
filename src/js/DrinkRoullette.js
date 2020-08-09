@@ -38,11 +38,11 @@ const DrinkRoulette = () => {
   };
   const handleChangeClass = (e) => {
     e.target.parentElement.previousSibling.children[1].className ==
-    "preparation-hidden"
+      "preparation-hidden"
       ? (e.target.parentElement.previousSibling.children[1].className =
-          "preparation-show")
+        "preparation-show")
       : (e.target.parentElement.previousSibling.children[1].className =
-          "preparation-hidden");
+        "preparation-hidden");
     e.target.nextSibling.classList == "btn-ref"
       ? (e.target.nextSibling.className = "btn-ref hide")
       : (e.target.nextSibling.className = "btn-ref");

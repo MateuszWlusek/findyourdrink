@@ -9,7 +9,7 @@ This is simple application used to administer your own drinks base. Place for co
 ##Tech
 
 - React
-- JSON
+- JSONgit check
 - CSS/SASS
 - Webpack/Gulp
 
@@ -24,10 +24,12 @@ This is simple application used to administer your own drinks base. Place for co
 - Mobile version of application.
 - Deleting ingredients from list.
 - Put whole base on outside server to anyone can join it.
+- Validation to forms
 
 ##Install
 Commands to write into console:
-
+Open it on http://localhost:3000/
+- ```npm start - start of the app```
 - ```npm i - installing all important packages```
 - ```json-server --watch src/database/drinks.json -p 3005 - starting json server```
 
