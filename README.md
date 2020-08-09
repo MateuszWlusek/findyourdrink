@@ -28,8 +28,8 @@ This is simple application used to administer your own drinks base. Place for co
 ##Install
 Commands to write into console:
 
-- npm i - installing all important packages
-- json-server --watch src/database/drinks.json -p 3005 - starting json server
+- ```npm i - installing all important packages```
+- ```json-server --watch src/database/drinks.json -p 3005 - starting json server```
 
 ##Bugs
 
