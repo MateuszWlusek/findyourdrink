@@ -11,6 +11,7 @@ const SearchDrink = () => {
   const [filtdrink, setFiltdrink] = useState([]);
   const [filtdrink2, setFiltdrink2] = useState([]);
   const [otheringr, setOtheringr] = useState([]);
+  const [select, setSelect] = useState(false);
   const [descr, setDescr] = useState("none");
 
   useEffect(() => {
