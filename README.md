@@ -31,4 +31,8 @@ Commands to write into console:
 - npm i - installing all important packages
 - json-server --watch src/database/drinks.json -p 3005 - starting json server
 
-##Demo
+##Bugs
+
+- Every ingredient in new array
+- "Fetch error" while adding into json
+- Problems with selected alcohol in SearchDrink section
